@@ -8,6 +8,12 @@ const rpfy = new Restapify({
   rootDir: apiFolderPath,
   openDashboard: true
 })
+
+rpfy.on('error', ({error, message}) => {
+  console.log(error + ' ' + message)
+  process.exit(1)
+})
+
 rpfy.run()
 
 module.exports = withCSS({
