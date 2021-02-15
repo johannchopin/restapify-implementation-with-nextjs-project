@@ -7,7 +7,7 @@ import MyNavbar from '../components/MyNavbar';
 
 function LoginPage() {
   return <>
-    <MyNavbar></MyNavbar>
+    <MyNavbar />
     <Container>
       <Row>
         <Col>

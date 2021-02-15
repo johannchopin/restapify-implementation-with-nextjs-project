@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import MyNavbar from '../../components/MyNavbar';
 
-import { ListGroup, ListGroupItem, Col, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Form, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 
 import api from '../../axiosStore'
 
@@ -39,15 +39,14 @@ const Animals = () => {
       <MyNavbar />
 
       <h1>Our Residents</h1>
+      <Form.Control as="select" size="lg" onChange={e => { fetchAnimals(e.target.value) }}>
+        {[15, 25, 50, 100].map(limit => (
+          <option key={limit}>{limit}</option>
+        ))}
+      </Form.Control>
       <ButtonToolbar aria-label="Toolbar with button groups">
         <ButtonGroup className="mr-2" aria-label="First group">
-          {[15, 25, 50, 100].map(limit => (
-            <Button
-              key={limit}
-              onClick={() => {fetchAnimals(limit)}}
-              >{limit}
-            </Button>
-          ))}
+          
         </ButtonGroup>
       </ButtonToolbar>
       {!animals 

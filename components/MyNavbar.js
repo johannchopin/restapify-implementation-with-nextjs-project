@@ -14,15 +14,18 @@ function MyNavbar() {
   function onLogout() {
     Cookies.set('jwt', '');
     setUser({ user: null });
-    Router.push('/login');
+    Router.push('/');
   }
 
   const renderUserNav = () => {
     if (user) {
       return <Nav>
-        <Navbar.Text>
+        <Navbar.Text className='pr-3'>
           Signed in as: {user.username}
         </Navbar.Text>
+        <Link href="/dashboard" passHref>
+          <Nav.Link className='pr-3'>Dashboard</Nav.Link>
+        </Link>
         <Nav.Link onClick={onLogout}>Logout</Nav.Link>
       </Nav>
     }
@@ -35,8 +38,8 @@ function MyNavbar() {
   }
 
   return <Navbar>
-    <Link href="/index" passHref>
-      <Navbar.Brand href="/">Next JS Bootstrap</Navbar.Brand>
+    <Link href="/" passHref>
+      <Navbar.Brand>🐕 The Animal Shelter</Navbar.Brand>
     </Link>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">

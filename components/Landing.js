@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function Landing() {
-  return <Container>
+  return <Container className='pt-4'>
     <Col>
       <Row>
         <h1>🐝 Welcome to the Animal shelter</h1>

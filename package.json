@@ -19,6 +19,6 @@
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
-    "restapify": "^0.0.30"
+    "restapify": "^0.0.31"
   }
 }

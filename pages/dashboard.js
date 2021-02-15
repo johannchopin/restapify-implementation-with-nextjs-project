@@ -7,7 +7,9 @@ import Router from 'next/router';
 
 import UserContext from '../lib/userContext';
 
-function Dashboard() {
+import MyNavbar from '../components/MyNavbar';
+
+export default function Dashboard() {
   const { user } = React.useContext(UserContext)
 
   React.useEffect(() => {
@@ -16,13 +18,14 @@ function Dashboard() {
     }
   }, [])
 
-  return <Container>
-    <Col>
-      <Row>
-        {user ? <p>Logged in as {user.username}</p> : '...'}
-      </Row>
-    </Col>
-  </Container>
-};
-
-export default Dashboard;
+  return <>
+    <MyNavbar />
+    <Container>
+      <Col>
+        <Row>
+          {user ? <p>Logged in as {user.username}</p> : '...'}
+        </Row>
+      </Col>
+    </Container>
+  </>
+}

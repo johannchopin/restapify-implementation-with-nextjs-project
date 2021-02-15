@@ -3,7 +3,9 @@ import { Card, Col, Button } from 'react-bootstrap';
 
 import api from '../../axiosStore'
 
-const User = () => {
+import MyNavbar from '../../components/MyNavbar';
+
+export default function Animal() {
   const router = useRouter()
   const { animalid } = router.query
 
@@ -27,14 +29,17 @@ const User = () => {
 
   const renderAnimal = () => {
     return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={animal.avatar} />
-        <Card.Body>
-          <Card.Title>{animal.name}</Card.Title>
-          <Card.Text>{animal.description}</Card.Text>
-          <Button variant="primary" onClick={adopt}>Adopt me</Button>
-        </Card.Body>
-      </Card>
+      <>
+        <MyNavbar />
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={animal.avatar} />
+          <Card.Body>
+            <Card.Title>{animal.name}</Card.Title>
+            <Card.Text>{animal.description}</Card.Text>
+            <Button variant="primary" onClick={adopt}>Adopt me</Button>
+          </Card.Body>
+        </Card>
+      </>
     )
   }
 
@@ -51,5 +56,3 @@ const User = () => {
     </Col>
     )
 }
-
-export default User

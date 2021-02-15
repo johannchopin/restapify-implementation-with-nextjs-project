@@ -5022,10 +5022,10 @@ restapify-dashboard@^1.0.13:
     popper.js "^1.16.1"
     sirv-cli "^1.0.0"
 
-restapify@^0.0.30:
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/restapify/-/restapify-0.0.30.tgz#4b1bc8fdab5df2554ce80c3f9763deed2a24d56b"
-  integrity sha512-UkJ2xQgjnw7rl039JyDO6b40/Oe0HteXygetTUiu5vbVvWrknLQWFHOjNcgQku73hEwf+v2+hQF1ccy4w7TwXA==
+restapify@^0.0.31:
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/restapify/-/restapify-0.0.31.tgz#edf3cc177e62ddcf78e9f09d0b466894835659eb"
+  integrity sha512-O1HekrS1/vdMBMyD+M9LWIA1v3/Y4mxSmZDWeSkZJAUMsFxTBd5Dr4jtR6ZJF5MD5qI5k7iuVz5FclNoxuLjkg==
   dependencies:
     boxen "^5.0.0"
     chalk "^4.1.0"
