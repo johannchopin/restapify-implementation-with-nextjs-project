@@ -1,5 +1,6 @@
 const withCSS = require('@zeit/next-css')
 const path = require('path')
+/*
 const Restapify = require('restapify').default
 
 const apiFolderPath = path.resolve(__dirname, './mockedApi')
@@ -15,7 +16,7 @@ rpfy.on('error', ({error, message}) => {
 })
 
 rpfy.run()
-
+*/
 module.exports = withCSS({
   cssLoaderOptions: {
     url: false

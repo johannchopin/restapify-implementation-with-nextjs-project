@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
@@ -5,16 +6,32 @@ import UserContext from '../lib/userContext';
 import Router from 'next/router';
 
 import Cookies from 'js-cookie';
-import { useContext } from 'react';
 
 function MyNavbar() {
 
-  const [, setUserContext] = useContext(UserContext);
+  const { user, setUser } = React.useContext(UserContext);
 
   function onLogout() {
     Cookies.set('jwt', '');
-    setUserContext(undefined);
+    setUser({ user: null });
     Router.push('/login');
+  }
+
+  const renderUserNav = () => {
+    if (user) {
+      return <Nav>
+        <Navbar.Text>
+          Signed in as: {user.username}
+        </Navbar.Text>
+        <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+      </Nav>
+    }
+
+    return <Nav>
+      <Link href="/login" passHref>
+        <Nav.Link>Login</Nav.Link>
+      </Link>
+    </Nav>
   }
 
   return <Navbar>
@@ -23,25 +40,7 @@ function MyNavbar() {
     </Link>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
-      <UserContext.Consumer >
-        {([userContext,]) => {
-          if (userContext) {
-            return <Nav>
-              <Navbar.Text>
-                Signed in as: {userContext.username}
-              </Navbar.Text>
-              <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-            </Nav>
-          }
-
-          return <Nav>
-            <Link href="/login" passHref>
-              <Nav.Link>Login</Nav.Link>
-            </Link>
-          </Nav>
-        }}
-
-      </UserContext.Consumer>
+      {renderUserNav()}
     </Navbar.Collapse>
   </Navbar>;
 }
